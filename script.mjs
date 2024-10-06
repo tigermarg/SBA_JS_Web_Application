@@ -31,7 +31,7 @@ async function breedSelect() {
             catList.style.display = "block";
             }else{
                 if(breed.origin === filter){
-                        // console.log(breed.origin)
+                        console.log(breed.origin)
                         catList.style.display = "block";
                     }else{
                         catList.style.display = "none"
@@ -57,12 +57,12 @@ async function cardHandler(e) {
     let catData = await response.json()
 
    catData.forEach((i) => {
-    //   console.log(i)
+      console.log(i)
       let imgSrc = i.url; 
       card.createCardlItem(imgSrc); 
       
     let cardTitle = document.getElementById("card-title");
-    cardTitle.textContent= `${breedID}`;
+    cardTitle.textContent= `${i.breeds[0].name}`;
    
     let p1 = document.querySelector(`p1`);
     p1.innerHTML= `Origin: ${i.breeds[0].origin}`
@@ -83,6 +83,6 @@ async function cardHandler(e) {
 }
   
   
-    let catFact = document.querySelector(".fact")
-    console.log(catFact)
-    catFact.appendChild(quote)
+    // let catFact = document.querySelector(".fact")
+    // console.log(catFact)
+    // catFact.appendChild(quote)

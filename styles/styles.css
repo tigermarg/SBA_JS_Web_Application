@@ -1,0 +1,32 @@
+html {
+    background-image: url(/images/cat_bg.jpg);
+    background-attachment: fixed;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-color: none;
+}
+
+h1 {
+    font-family: custom;
+}
+
+@font-face {
+    font-family: custom;
+    src: url(./Sinera.otf);
+}
+
+#dogList {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-width: 2px;
+    border-color: silver
+
+}
+
+
