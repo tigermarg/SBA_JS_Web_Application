@@ -5,6 +5,7 @@ const API_KEY = "live_gV9MjVkyJTBFUW8gd3h0AHho6naaaX9jsUmSU8PMQ6UpzdLhIAbhbsV3Hu
 
 
 async function breedSelect() {
+    alert(`Ready to find a fur-riend?`)
     let res = await fetch(`https://api.thecatapi.com/v1/breeds`);
     let catBreeds = await res.json(); 
 
@@ -48,7 +49,6 @@ breedSelect();
 
 
 async function cardHandler(e) {
-    alert(`Ready to see your new fur-iend?`)
     card.clear()
 
     let breedID = e.target.value; 
