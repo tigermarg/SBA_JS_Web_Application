@@ -1,24 +1,25 @@
 import * as card from "./card.mjs";
-
+import * as quote from "./quote.mjs"
 
 const API_KEY = "live_gV9MjVkyJTBFUW8gd3h0AHho6naaaX9jsUmSU8PMQ6UpzdLhIAbhbsV3HuzqA02S";
 
 
 async function breedSelect() {
-    let res = await fetch(`https://api.thedogapi.com/v1/breeds`);
-    let dogBreeds = await res.json(); 
+    let res = await fetch(`https://api.thecatapi.com/v1/breeds`);
+    let catBreeds = await res.json(); 
 
-    let dogList = document.getElementById("dogList")
+    let catList = document.getElementById("dogList")
     let buttons = document.querySelectorAll(".btn")
 
-    dogBreeds.forEach(breed => {
+    catBreeds.forEach(breed => {
         // console.log(dogBreeds)
         let selection = document.createElement('option');
         selection.setAttribute('value', breed.id);
         selection.textContent = breed.name;
-        dogList.appendChild(selection);
+        catList.appendChild(selection);
     
-    dogList.addEventListener(`change`, cardHandler);
+    catList.addEventListener(`change`, cardHandler);
+
 
     buttons.forEach(button => {
         button.addEventListener("click", (e) => {
@@ -27,13 +28,16 @@ async function breedSelect() {
             console.log(filter)
 
         if(filter === "All"){
-                dogList.style.display = "block";
-            }else if(breed.breed_group === filter){
-                console.log(breed.breed_group)
-                        dogList.style.display = "block"
+            catList.style.display = "block";
+            }else{
+                if(breed.origin === filter){
+                        // console.log(breed.origin)
+                        catList.style.display = "block";
                     }else{
-                        dogList.style.display = "none";
+                        catList.style.display = "none"
                     }
+                }
+            
             }                    
         )
     })
@@ -44,25 +48,41 @@ breedSelect();
 
 
 async function cardHandler(e) {
+    alert(`Ready to see your new fur-iend?`)
     card.clear()
-    console.log(e)
+
     let breedID = e.target.value; 
-    let response = await fetch(`https://api.thedogapi.com/v1/images/search?limit=1&breed_ids=${breedID}&api_key=${API_KEY}`) //GET request using fetch()
+    let response = await fetch(`https://api.thecatapi.com/v1/images/search?limit=1&breed_ids=${breedID}&api_key=${API_KEY}`) //GET request using fetch()
 
-    let dogData = await response.json()
+    let catData = await response.json()
 
-   dogData.forEach((i) => {
+   catData.forEach((i) => {
     //   console.log(i)
       let imgSrc = i.url; 
       card.createCardlItem(imgSrc); 
       
-    let cardTitle = document.getElementById("card-title")
-    cardTitle.textContent = `${i.id}`;
+    let cardTitle = document.getElementById("card-title");
+    cardTitle.textContent= `${breedID}`;
+   
+    let p1 = document.querySelector(`p1`);
+    p1.innerHTML= `Origin: ${i.breeds[0].origin}`
+
+    let p2 = document.querySelector(`p2`);
+    p2.innerHTML= `Weight: ${i.breeds[0].weight.imperial} lbs`
+
+    let p3 = document.querySelector(`p3`);
+    p3.innerHTML= `Personality: ${i.breeds[0].temperament}`
+
+    let p4 = document.querySelector(`p4`);
+    p4.innerHTML= `${i.breeds[0].description}`
+
 
     })
 
-    console.log(dogData)
+    // console.log(catData)
 }
   
-
   
+    let catFact = document.querySelector(".fact")
+    console.log(catFact)
+    catFact.appendChild(quote)
