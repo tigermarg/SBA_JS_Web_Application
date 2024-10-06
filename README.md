@@ -1,6 +1,6 @@
 # JavaScript Web Application Using Fetch
 ### About
-This is a single web application that allows you to search and filter different breeds of cats based on their origin. Each breed will contain facts, and the page also gives an option for generating a random "meowfact." This is an example project using html, css & multiple javascript modules. It demonstrates import and export of functions and events across modules, as well as using fetch API and making use of async/await syntax. 
+This is a single web application that allows you to search and filter different breeds of cats based on their origin. Each breed will contain an image with facts, and the page also gives an option for generating a random "meowfact." This is an example project using html, css & multiple javascript modules. It demonstrates import and export of functions and events across modules, as well as using fetch API and making use of async/await syntax. 
 ### Technologies
 Windows OS, VS Code
 ### How to Get Started
