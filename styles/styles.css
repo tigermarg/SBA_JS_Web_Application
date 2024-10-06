@@ -20,6 +20,19 @@ h1 {
     src: url(./Sinera.otf);
 }
 
+#input {
+    width: 30rem;
+    text-align: center;
+    color: silver;
+}
+
+#fact {
+    width: 50rem;
+    font-size: 20px;
+    color: gray;
+    font-style: italic;
+}
+
 #dogList {
     display: flex;
     justify-content: center;

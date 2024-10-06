@@ -1,7 +1,11 @@
+export let input = document.getElementById("input");
+export let fact = document.getElementById("fact");
+    
 export async function catFacts(){
-  
-  let res = await fetch(`https://meowfacts.herokuapp.com/`);
+    let response = await fetch(`https://meowfacts.herokuapp.com/`);
+    let quote = await response.json(); 
+    console.log(quote)
+    fact.textContent = quote.data
+  }  
 
-  let quote = await res.json(); 
-  console.log(quote)
-}  
+input.addEventListener("keydown", catFacts)

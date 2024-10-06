@@ -79,10 +79,4 @@ async function cardHandler(e) {
 
     })
 
-    // console.log(catData)
 }
-  
-  
-    // let catFact = document.querySelector(".fact")
-    // console.log(catFact)
-    // catFact.appendChild(quote)
