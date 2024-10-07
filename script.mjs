@@ -38,7 +38,7 @@ async function breedSelect() {  //Use of async/await syntax
                         console.log(breed.origin)
                         catList.style.display = "block";
                     }else{
-                        catList.remove(catList.breed)
+                        catList.style.display = "none";
                     }
                 }
             
